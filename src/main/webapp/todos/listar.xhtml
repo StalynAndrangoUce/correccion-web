@@ -1,0 +1,79 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>TODOS</title>
+</h:head>
+
+<h:body>
+	<h2>TODOS</h2>
+
+	<p>STALYN ANDRANGO</p>
+
+	<h:form>
+
+		<h:dataTable value="#{manejadorTodos.todoList}" var="vari">
+			<h:column>
+				<f:facet name="header">ID</f:facet>    				
+                #{vari.userId}
+            </h:column>
+			<h:column>
+				<f:facet name="header">TITLE</f:facet>    				
+               #{vari.title}
+            </h:column>
+
+		</h:dataTable>
+		<br />
+	</h:form>
+	<h:form>
+		<h:selectOneMenu value="#{manejadorTodos.idTodo}">
+			<f:selectItem itemLabel="SELECCIONE ID SINGER" itemValue="" />
+			<f:selectItems value="#{manejadorTodos.todoList}" var="vari"
+				itemLabel="#{vari.userId}" itemValue="#{vari.userId}" />
+		</h:selectOneMenu>
+
+		<div>
+			<h:commandButton value="VER DETALLE TODO"
+				action="#{manejadorTodos.buscarTodo()}" />
+		</div>
+		<br />
+		<div>
+			<h:outputLabel value="ID USER" />
+			<div>
+				<h:outputText value="#{manejadorTodos.todo.userId}" />
+			</div>
+		</div>
+
+		<div>
+			<h:outputLabel value="ID" />
+			<div>
+				<h:outputText value="#{manejadorTodos.todo.id}" />
+			</div>
+		</div>
+		<br />
+		<div>
+			<h:outputLabel value="TITLE" />
+			<div>
+				<h:outputText value="#{manejadorTodos.todo.title}" />
+			</div>
+		</div>
+		<br />
+		<div>
+			<h:outputLabel value="COMPLETED" />
+			<div>
+				<h:outputText value="#{manejadorTodos.todo.completed}" />
+			</div>
+		</div>
+		<br />
+		<br />
+		<h:link value="ATRÁS" outcome="/faces/hello.xhtml" />
+		<br />
+		<br />
+	</h:form>
+</h:body>
+
+</html>

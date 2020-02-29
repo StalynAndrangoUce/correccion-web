@@ -1,0 +1,226 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>USERS</title>
+</h:head>
+
+<h:body>
+	<h2>USERS</h2>
+
+
+	<p>STALYN ANDRANGO</p>
+
+	<h:form>
+
+		<h:dataTable value="#{manejadorUsers.usersList}" var="vari">
+			<h:column>
+				<f:facet name="header">ID</f:facet>    				
+                #{vari.id}
+            </h:column>
+			<h:column>
+				<f:facet name="header">NAME</f:facet>    				
+               #{vari.name}
+            </h:column>
+			<h:column>
+				<f:facet name="header">USERNAME</f:facet>    				
+               #{vari.username}
+            </h:column>
+			<h:column>
+				<f:facet name="header">EMAIL</f:facet>    				
+               #{vari.email}
+          </h:column>
+
+
+			<h:column>
+				<f:facet name="header">WEBSITE</f:facet>    				
+               #{vari.website}
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">PHONE</f:facet>    				
+               #{vari.phone}
+            </h:column>
+
+			<h:column>
+				<f:facet name="header">ID_ADDRESS</f:facet>    				
+               #{vari.idAddress.id}
+          </h:column>
+
+			<h:column>
+				<f:facet name="header">STREET</f:facet>    				
+               #{vari.idAddress.street}
+          </h:column>
+
+			<h:column>
+				<f:facet name="header">SUITE</f:facet>    				
+               #{vari.idAddress.suite}
+          </h:column>
+			<h:column>
+				<f:facet name="header">ZIP_CODE</f:facet>    				
+               #{vari.idAddress.zipcode}
+          </h:column>
+
+			<h:column>
+				<f:facet name="header">ID_GEO</f:facet>    				
+               #{vari.idAddress.idGeo.id}
+          </h:column>
+			<h:column>
+				<f:facet name="header">LAT</f:facet>    				
+               #{vari.idAddress.idGeo.lat}
+          </h:column>
+			<h:column>
+				<f:facet name="header">LNG</f:facet>    				
+               #{vari.idAddress.idGeo.lng}
+          </h:column>
+			<h:column>
+				<f:facet name="header">ID_COMPANY</f:facet>    				
+               #{vari.idCompany.id}
+          </h:column>
+			<h:column>
+				<f:facet name="header">NAME_COMPANY</f:facet>    				
+               #{vari.idCompany.name}
+          </h:column>
+			<h:column>
+				<f:facet name="header">CATCHPHRASE</f:facet>    				
+               #{vari.idCompany.catchPhrase}
+          </h:column>
+			<h:column>
+				<f:facet name="header">BS</f:facet>    				
+               #{vari.idCompany.bs}
+          </h:column>
+		</h:dataTable>
+		<br />
+	</h:form>
+
+	<h:form>
+		<h:selectOneMenu value="#{manejadorUsers.idUser}">
+			<f:selectItem itemLabel="SELECCIONE ID USERS" itemValue="" />
+			<f:selectItems value="#{manejadorUsers.usersList}" var="vari"
+				itemLabel="#{vari.id}" itemValue="#{vari.id}" />
+		</h:selectOneMenu>
+
+		<div>
+			<h:commandButton value="VER DETALLE TODO"
+				action="#{manejadorUsers.buscarUser()}" />
+		</div>
+		<br />
+		<div>
+			<h:outputLabel value="ID " />
+			<div>
+				<h:outputText value="#{manejadorUsers.user.id}" />
+			</div>
+		</div>
+
+		<div>
+			<h:outputLabel value="NAME" />
+			<div>
+				<h:outputText value="#{manejadorUsers.user.name}" />
+			</div>
+		</div>
+		<br />
+		<div>
+			<h:outputLabel value="USERNAME" />
+			<div>
+				<h:outputText value="#{manejadorUsers.user.username}" />
+			</div>
+		</div>
+		<br />
+		<div>
+			<h:outputLabel value="EMAIL" />
+			<div>
+				<h:outputText value="#{manejadorUsers.user.email}" />
+			</div>
+		</div>
+		<br />
+		<div>
+			<h:outputLabel value="PHONE" />
+			<div>
+				<h:outputText value="#{manejadorUsers.user.phone}" />
+			</div>
+		</div>
+		<br />
+		<div>
+			<h:outputLabel value="WEBSITE" />
+			<div>
+				<h:outputText value="#{manejadorUsers.user.website}" />
+			</div>
+		</div>
+		<br />
+		<div>
+			<h:outputLabel value="STREET" />
+			<div>
+				<h:outputText value="#{manejadorUsers.user.idAddress.street}" />
+			</div>
+		</div>
+		<br />
+		<div>
+			<h:outputLabel value="SUITE" />
+			<div>
+				<h:outputText value="#{manejadorUsers.user.idAddress.suite}" />
+			</div>
+		</div>
+		<br />
+		<div>
+			<h:outputLabel value="CITY" />
+			<div>
+				<h:outputText value="#{manejadorUsers.user.idAddress.city}" />
+			</div>
+		</div>
+		<br />
+		<div>
+			<h:outputLabel value="ZIPCODE" />
+			<div>
+				<h:outputText value="#{manejadorUsers.user.idAddress.zipcode}" />
+			</div>
+		</div>
+		<br />
+		<div>
+			<h:outputLabel value="LAT" />
+			<div>
+				<h:outputText value="#{manejadorUsers.user.idAddress.idGeo.lat}" />
+			</div>
+		</div>
+		<br />
+		<div>
+			<h:outputLabel value="LNG" />
+			<div>
+				<h:outputText value="#{manejadorUsers.user.idAddress.idGeo.lng}" />
+			</div>
+		</div>
+		<br />
+		<div>
+			<h:outputLabel value="company name" />
+			<div>
+				<h:outputText value="#{manejadorUsers.user.idCompany.name}" />
+			</div>
+		</div>
+		<br />
+		<div>
+			<h:outputLabel value="catch_phrase" />
+			<div>
+				<h:outputText value="#{manejadorUsers.user.idCompany.catch_phrase}" />
+			</div>
+		</div>
+		<br />
+		<div>
+			<h:outputLabel value="bs" />
+			<div>
+				<h:outputText value="#{manejadorUsers.user.idCompany.bs}" />
+			</div>
+		</div>
+		<br />
+		<br />
+		<h:link value="ATRÁS" outcome="/faces/hello.xhtml" />
+		<br />
+		<br />
+	</h:form>
+
+
+
+</h:body>
+</html>
